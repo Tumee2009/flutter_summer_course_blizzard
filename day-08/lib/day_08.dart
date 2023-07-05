@@ -2,7 +2,7 @@ import 'package:day_08/add.dart';
 import 'dart:io';
 import 'dart:math';
 
-void main(){
+void main() {
   print('day-08');
   print(add(4, 5));
   print(minus(5, 6));
@@ -21,22 +21,22 @@ void main(){
   final int randomNumber2 = random.nextInt(100) + 1;
   print(randomNumber2);
 }
+
 class A {
   int x = 0;
   int y = 0;
-  int nextInt(){
+  int nextInt() {
     return 100;
   }
+
   int add(int a, int b) {
     return a + b;
   }
 }
+
 //exercises1
 class B {
   int x = 0;
   int y = 0;
 }
 //exercises2
-
-
-
