@@ -22,7 +22,7 @@ void main() {
                   ],
                 ),
                 borderRadius: BorderRadius.circular(25)),
-            child: ElevatedButton(onPressed: (){}, child: child)
+            child: ElevatedButton(onPressed: (){}, child: )
             ),
           ),
         )),
