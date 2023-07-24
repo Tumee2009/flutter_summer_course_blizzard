@@ -6,25 +6,40 @@ void main() {
     title: 'Word Find Game',
     theme: ThemeData(fontFamily: 'Ribeye'),
     home: Scaffold(
-        body: Center(child: WelcomePage()),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Container(
-            width: 310,
-            height: 60,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: [
-                    Color(0xFFE86B02),
-                    Color(0xFFFA9541),
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(25)),
-            child: ElevatedButton(onPressed: (){}, child: )
+      body: Center(child: WelcomePage()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Container(
+          width: 310,
+          height: 60,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  Color(0xFFE86B02),
+                  Color(0xFFFA9541),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(25)),
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25))),
+            child: Text(
+              'PLAY',
+              style: TextStyle(
+                  fontFamily: 'Nunito',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700),
             ),
           ),
-        )),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    ),
   ));
 }
