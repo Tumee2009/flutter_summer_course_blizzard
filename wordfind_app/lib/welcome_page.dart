@@ -53,8 +53,18 @@ class WelcomePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(25)),
         child: ElevatedButton(
           onPressed: () {},
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, elevation: 0, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
-          child: const Text('PLAY', style: TextStyle(fontFamily: 'Nunito', fontSize: 24, fontWeight: FontWeight.w700),),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25))),
+          child: const Text(
+            'PLAY',
+            style: TextStyle(
+                fontFamily: 'Nunito',
+                fontSize: 24,
+                fontWeight: FontWeight.w700),
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
