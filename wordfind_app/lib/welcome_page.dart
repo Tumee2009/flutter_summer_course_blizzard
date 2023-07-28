@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:day_11_flutter/Gradient_letter.dart';
+import 'package:day_11_flutter/start_page.dart';
 import 'package:flutter/material.dart';
 import 'gradient_text.dart';
 
@@ -52,7 +53,9 @@ class WelcomePage extends StatelessWidget {
                 colors: [Color(0xFFE86B02), Color(0xFFFA9541)]),
             borderRadius: BorderRadius.circular(25)),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage(), ));
+          },
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
               elevation: 0,

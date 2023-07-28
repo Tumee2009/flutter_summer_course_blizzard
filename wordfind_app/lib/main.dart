@@ -7,8 +7,7 @@ void main() {
     title: 'Word Find Game',
     theme: ThemeData(fontFamily: 'Ribeye'),
     home: const Scaffold(
-      // body: Center(child: WelcomePage()),
-      body: Center(child: StartPage(),),
+      body: Center(child: WelcomePage()),
     ),
   ));
 }
