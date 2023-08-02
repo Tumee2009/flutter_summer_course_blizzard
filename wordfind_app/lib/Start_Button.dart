@@ -1,3 +1,4 @@
+import 'package:day_11_flutter/Task_page.dart';
 import 'package:flutter/material.dart';
 
 class StartButton extends StatelessWidget {
@@ -14,7 +15,9 @@ class StartButton extends StatelessWidget {
           begin: Alignment.centerLeft, end: Alignment.centerRight,
           colors: [Color(0xFFE86B02), Color(0xFFFA9541)]),
           borderRadius: BorderRadius.circular(25)),
-      child: ElevatedButton(onPressed: (){}, child: Text(
+      child: ElevatedButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskPage()));
+      }, child: Text(
         text,
         style: TextStyle(fontFamily: 'Nunito',
         fontSize: 24,

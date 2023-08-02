@@ -2,12 +2,21 @@ import 'package:day_11_flutter/Start_Button.dart';
 import 'package:day_11_flutter/gradient_text.dart';
 import 'package:day_11_flutter/input_field.dart';
 import 'package:flutter/material.dart';
+import 'User_model.dart';
 
-class StartPage extends StatelessWidget {
-  const StartPage({super.key});
+User newUser = User('Guest', 0);
+
+class _StartPage extends StatefulWidget {
+  const _StartPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<_StartPage> createState() => _StartPageState();
+}
+
+class _StartPageState extends State<_StartPage> {
+  @override
+  Widget build(BuildContext context)
+  { _createUser(){}
     return Scaffold(
       backgroundColor: const Color(0xFFFBF5F2),
       appBar: AppBar(
@@ -43,7 +52,7 @@ class StartPage extends StatelessWidget {
               const GradientText('Player Name', 20.0),
               const Padding(padding: EdgeInsets.only(top: 20)),
               const Padding(padding: EdgeInsets.only(top: 20)),
-                InputField()
+                InputField(onSubmitted: (String ) {},)
             ],
           ),
         ),
