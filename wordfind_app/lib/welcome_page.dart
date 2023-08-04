@@ -54,7 +54,7 @@ class WelcomePage extends StatelessWidget {
             borderRadius: BorderRadius.circular(25)),
         child: ElevatedButton(
           onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => _StartPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()));
           },
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.transparent,
@@ -74,3 +74,4 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
+

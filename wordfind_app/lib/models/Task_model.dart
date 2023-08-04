@@ -1,11 +1,11 @@
 import 'Char_model.dart';
 
 class TaskModel {
-  String? question;
-  String? pathImage;
-  String? answer;
-  bool? isDone = false;
-  bool? isFull = false;
+  String question;
+  String pathImage;
+  String answer;
+  bool isDone = false;
+  bool isFull = false;
   List<CharModel> puzzles = [];
   List<String> arrayButtons = [];
   TaskModel({
@@ -25,14 +25,19 @@ class TaskModel {
   bool fieldCompleteCorrect() {
     bool complete =
         puzzles.where((puzzle) => puzzle.currentValue == null).isEmpty;
-    isFull = false;
-    return complete;
-    String answeredString  = puzzles.map((puzzle) => puzzle.currentValue).join("");
-    answeredString == answer;
-    return fieldCompleteCorrect();
+    if (!complete) {
+      isFull = false;
+      return complete;
+    }
+    isFull = true;
+    String answeredString =
+        puzzles.map((puzzle) => puzzle.currentValue).join("");
+
+    return answeredString == answer;
   }
-   TaskModel clone(){
+
+  TaskModel clone() {
     TaskModel(pathImage: pathImage, question: question, answer: answer);
     return clone();
-   }
+  }
 }

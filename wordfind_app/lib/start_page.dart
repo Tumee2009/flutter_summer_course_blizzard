@@ -1,22 +1,34 @@
 import 'package:day_11_flutter/Start_Button.dart';
 import 'package:day_11_flutter/gradient_text.dart';
 import 'package:day_11_flutter/input_field.dart';
+import 'package:day_11_flutter/models/user_model.dart';
+import 'package:day_11_flutter/task_widget.dart';
 import 'package:flutter/material.dart';
-import 'User_model.dart';
 
-User newUser = User('Guest', 0);
 
-class _StartPage extends StatefulWidget {
-  const _StartPage({super.key});
+
+
+UserModel newUser = UserModel(userName: 'Guest', score: 0);
+
+class StartPage extends StatefulWidget {
+  const StartPage({super.key});
 
   @override
-  State<_StartPage> createState() => _StartPageState();
+  State<StartPage> createState() => _StartPageState();
 }
 
-class _StartPageState extends State<_StartPage> {
+class _StartPageState extends State<StartPage> {
+
   @override
   Widget build(BuildContext context)
-  { _createUser(){}
+  {
+   void _createUser(String value){
+     setState(() {
+       newUser.userName = value;
+     });
+   }
+
+
     return Scaffold(
       backgroundColor: const Color(0xFFFBF5F2),
       appBar: AppBar(
@@ -24,6 +36,7 @@ class _StartPageState extends State<_StartPage> {
           icon: Image.asset('assets/images/arrow_back.png'),
           onPressed: () {
             Navigator.of(context).pop();
+            newUser = UserModel(userName: 'Guest', score: 0);
           },
         ),
         backgroundColor: Colors.transparent,
@@ -44,7 +57,7 @@ class _StartPageState extends State<_StartPage> {
         child:  Center(
           child: Column(
             children: [
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(top: 50)
             ),
               Image.asset('assets/images/iCodeGuyHead.png'),
@@ -52,12 +65,13 @@ class _StartPageState extends State<_StartPage> {
               const GradientText('Player Name', 20.0),
               const Padding(padding: EdgeInsets.only(top: 20)),
               const Padding(padding: EdgeInsets.only(top: 20)),
-                InputField(onSubmitted: (String ) {},)
+                InputField(onSubmitted: (String value) {_createUser(value);},)
             ],
           ),
         ),
       ),
-      floatingActionButton: StartButton('START'),
+
+      floatingActionButton: StartButton('START', newUser),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -78,21 +92,21 @@ class _StartPageState extends State<_StartPage> {
 //         borderRadius: BorderRadius.circular(25),
 //       ),
 //       child: StartButton('START'),
-//       // child: ElevatedButton(onPressed: () {},
-//       //     child: ElevatedButton(style: ElevatedButton.styleFrom(
-//       //         backgroundColor: Colors.transparent,
-//       //         elevation: 0,
-//       //         shape: RoundedRectangleBorder(
-//       //             borderRadius: BorderRadius.circular(25))),
-//       //       onPressed: () {  },
-//       //       child: const Text('START', style: TextStyle(fontFamily: 'Nunito',
-//       //           fontSize: 24,
-//       //           fontWeight: FontWeight.w700),),)
-//       // ),
+//       child: ElevatedButton(onPressed: () {},
+//           child: ElevatedButton(style: ElevatedButton.styleFrom(
+//               backgroundColor: Colors.transparent,
+//               elevation: 0,
+//               shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(25))),
+//             onPressed: () {  },
+//             child: const Text('START', style: TextStyle(fontFamily: 'Nunito',
+//                 fontSize: 24,
+//                 fontWeight: FontWeight.w700),),)
+//       ),
 //     );
 //   }
 // }
-
-
-
-
+//
+//
+//
+//
