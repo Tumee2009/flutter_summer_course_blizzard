@@ -1,7 +1,5 @@
-
-
-class UserModel{
-  late String userName;
-  late int score;
-  UserModel({required this.userName, required this.score});
+class UserModel {
+  String userName;
+  int score;
+  UserModel(this.userName, this.score);
 }

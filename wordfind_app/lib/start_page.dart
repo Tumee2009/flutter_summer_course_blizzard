@@ -1,14 +1,11 @@
-import 'package:day_11_flutter/Start_Button.dart';
-import 'package:day_11_flutter/gradient_text.dart';
-import 'package:day_11_flutter/input_field.dart';
-import 'package:day_11_flutter/models/user_model.dart';
-import 'package:day_11_flutter/task_widget.dart';
+
 import 'package:flutter/material.dart';
+import 'models/user_model.dart';
+import 'gradient_text.dart';
+import 'input_field.dart';
+import 'start_button.dart';
 
-
-
-
-UserModel newUser = UserModel(userName: 'Guest', score: 0);
+UserModel newUser = UserModel('Guest', 0);
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -18,17 +15,8 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-
   @override
-  Widget build(BuildContext context)
-  {
-   void _createUser(String value){
-     setState(() {
-       newUser.userName = value;
-     });
-   }
-
-
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFBF5F2),
       appBar: AppBar(
@@ -36,7 +24,7 @@ class _StartPageState extends State<StartPage> {
           icon: Image.asset('assets/images/arrow_back.png'),
           onPressed: () {
             Navigator.of(context).pop();
-            newUser = UserModel(userName: 'Guest', score: 0);
+            newUser = UserModel('Guest', 0);
           },
         ),
         backgroundColor: Colors.transparent,
@@ -54,26 +42,29 @@ class _StartPageState extends State<StartPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child:  Center(
+        child: Center(
           child: Column(
             children: [
-               Padding(
-                padding: EdgeInsets.only(top: 50)
-            ),
+              Padding(padding: EdgeInsets.only(top: 50)),
               Image.asset('assets/images/iCodeGuyHead.png'),
-               const Padding(padding: EdgeInsets.only(top: 20)),
+              const Padding(padding: EdgeInsets.only(top: 20)),
               const GradientText('Player Name', 20.0),
               const Padding(padding: EdgeInsets.only(top: 20)),
               const Padding(padding: EdgeInsets.only(top: 20)),
-                InputField(onSubmitted: (String value) {_createUser(value);},)
+              InputField(onSubmitted: _createUser)
             ],
           ),
         ),
       ),
-
-      floatingActionButton: StartButton('START', newUser),
+      floatingActionButton: StartButton(newUser),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+
+  void _createUser(String value) {
+    setState(() {
+      newUser.userName = value;
+    });
   }
 }
 // class StartButton extends StatelessWidget {

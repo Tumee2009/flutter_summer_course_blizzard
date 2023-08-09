@@ -1,14 +1,13 @@
-import 'package:day_11_flutter/data/questions.dart';
-import 'package:day_11_flutter/start_page.dart';
-import 'package:day_11_flutter/task_widget.dart';
-import 'package:day_11_flutter/models/user_model.dart';
 import 'package:flutter/material.dart';
-
-import 'models/Task_model.dart';
+import 'data/questions.dart';
+import 'task_widget.dart';
+import 'models/user_model.dart';
+import 'models/task_model.dart';
 
 class TaskPage extends StatefulWidget {
-  const TaskPage(UserModel newUser, {super.key, required this.user});
   final UserModel user;
+
+  const TaskPage(this.user, {super.key});
 
   @override
   State<TaskPage> createState() => _TaskPageState();
@@ -21,11 +20,14 @@ class _TaskPageState extends State<TaskPage> {
 
   @override
   void initState() {
-
-    listQuestions = questions;
     super.initState();
+    listQuestions = questions;
     user = widget.user;
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -43,26 +45,33 @@ class _TaskPageState extends State<TaskPage> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          newUser.userName,
-          style: TextStyle(
+          user.userName,
+          style: const TextStyle(
             fontSize: 24,
             color: Color(0xFFE86B02),
           ),
         ),
       ),
       body: SafeArea(
+          child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/back2.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: [
-            Expanded( child: LayoutBuilder(builder: (context, constraints)=> Container(
-              height: 300,
-              child: TaskWidget(
-                constraints.biggest,
-                listQuestions.map((question) => question.clone()).toList(), Key: globalKey,
-
-              ),
-            ))),
             Expanded(
-                child: Container(
+              child: LayoutBuilder(builder: (context, constraints) {
+                return TaskWidget(
+                  constraints.biggest,
+                  listQuestions.map((question) => question.clone()).toList(),
+                  key: globalKey,
+                );
+              }),
+            ),
+            Container(
               width: double.maxFinite,
               padding: EdgeInsets.only(top: 10),
               color: Colors.white,
@@ -77,7 +86,11 @@ class _TaskPageState extends State<TaskPage> {
                       borderRadius: BorderRadius.circular(10)),
                   child: ElevatedButton(
                     onPressed: () {
-                      globalKey.currentState?.generatePuzzle(loop: listQuestions.map((question) => question.clone()).toList(),);
+                      globalKey.currentState?.generatePuzzle(
+                        loop: listQuestions
+                            .map((question) => question.clone())
+                            .toList(),
+                      );
                     },
                     child: Text(
                       'Reload',
@@ -96,10 +109,10 @@ class _TaskPageState extends State<TaskPage> {
                   ),
                 ),
               ),
-            ))
+            )
           ],
         ),
-      ),
+      )),
     );
   }
 }

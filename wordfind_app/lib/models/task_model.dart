@@ -1,4 +1,4 @@
-import 'Char_model.dart';
+import 'char_model.dart';
 
 class TaskModel {
   String question;
@@ -8,12 +8,14 @@ class TaskModel {
   bool isFull = false;
   List<CharModel> puzzles = [];
   List<String> arrayButtons = [];
+
   TaskModel({
-    required this.pathImage,
     required this.question,
     required this.answer,
+    required this.pathImage,
     this.arrayButtons = const [],
   });
+
   void setWordFindChar(List<CharModel> puzzles) {
     this.puzzles = puzzles;
   }
@@ -37,7 +39,6 @@ class TaskModel {
   }
 
   TaskModel clone() {
-    TaskModel(pathImage: pathImage, question: question, answer: answer);
-    return clone();
+    return TaskModel(pathImage: pathImage, question: question, answer: answer);
   }
 }
