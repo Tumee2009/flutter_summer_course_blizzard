@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StartPage extends StatelessWidget {
-  const StartPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class StartPage extends StatelessWidget {
         children: [
           Padding(padding: EdgeInsets.only(bottom: 200)),
           Text(
-            'iCodegram',
+            'iCode-gram',
             style: TextStyle(
                 fontFamily: 'Lobster',
                 fontWeight: FontWeight.w400,
