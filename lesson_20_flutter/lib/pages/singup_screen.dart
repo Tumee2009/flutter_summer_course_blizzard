@@ -10,7 +10,7 @@ class SingUp extends StatefulWidget {
 }
 
 class _SingUpState extends State<SingUp> {
-  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
@@ -18,7 +18,7 @@ class _SingUpState extends State<SingUp> {
   @override
   void dispose() {
     super.dispose();
-    _phoneNumberController.dispose();
+    _emailController.dispose();
     _userController.dispose();
     _passwordController.dispose();
     _rePasswordController.dispose();
@@ -36,7 +36,7 @@ class _SingUpState extends State<SingUp> {
               children: [
                 Flexible(flex: 2, child: Container()),
                 Text(
-                  'Icodegram',
+                  'Instagram',
                   style: TextStyle(
                     fontFamily: 'Lobster',
                     fontSize: 35,
@@ -48,27 +48,34 @@ class _SingUpState extends State<SingUp> {
                   height: 64,
                 ),
                 TextFieldInput(
-                  hintText: 'Утасны дугаар',
-                  isPassword: false, textEditingController: _phoneNumberController,
+                  hintText: 'И-Мэйл',
+                  isPassword: false,
+                  textEditingController: _emailController, textInputType: TextInputType.text,
                 ),
                 SizedBox(
                   height: 24,
                 ),
                 TextFieldInput(
                   hintText: 'Хэрэглэгчийн нэр',
-                  isPassword: false, textEditingController: _userController,
+                  isPassword: false,
+                  textEditingController: _userController, textInputType: TextInputType.text,
                 ),
                 SizedBox(
                   height: 24,
                 ),
                 TextFieldInput(
                   hintText: 'Нууц үг',
-                  isPassword: true, textEditingController: _passwordController,
+                  isPassword: true,
+                  textEditingController: _passwordController, textInputType: TextInputType.text,
                 ),
                 SizedBox(
                   height: 24,
                 ),
-                TextFieldInput(hintText: 'Нууц үг давтах', isPassword: true, textEditingController: _rePasswordController,),
+                TextFieldInput(
+                  hintText: 'Нууц үг давтах',
+                  isPassword: true,
+                  textEditingController: _rePasswordController, textInputType: TextInputType.text,
+                ),
                 SizedBox(
                   height: 24,
                 ),
@@ -77,7 +84,12 @@ class _SingUpState extends State<SingUp> {
                   flex: 2,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    AuthMetods().singUpUser(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                        username: _userController.text);
+                  },
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,

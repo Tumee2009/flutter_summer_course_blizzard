@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_20_flutter/pages/login_screen.dart';
 import 'package:lesson_20_flutter/pages/singup_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -9,6 +10,6 @@ void main() {
   Firebase.initializeApp();
 
   runApp(const MaterialApp(
-    home: SingUp(),
+    home: LoginScreen(),
   ));
 }
