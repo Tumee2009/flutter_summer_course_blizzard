@@ -5,7 +5,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -51,6 +51,7 @@ class LoginPage extends StatelessWidget {
                         fontSize: 25,
                         fontWeight: FontWeight.w400,
                         color: Colors.grey,
+
                       )),
                   Text(
                     "Бүртгүүлэх",
@@ -81,7 +82,7 @@ class LoginPage extends StatelessWidget {
                 hintText: "Нууц үг",
                 hintStyle: TextStyle(color: Colors.grey),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.vertical(top: Radius.zero),
+                    borderRadius: BorderRadius.vertical(top: Radius.zero, ),
                     borderSide: BorderSide(width: 15, style: BorderStyle.none, )),
               )),
         ],
