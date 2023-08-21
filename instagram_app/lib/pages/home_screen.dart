@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_app/pages/story_screen.dart';
+import 'package:instagram_app/component/add_story.dart';
+import 'package:instagram_app/component/see_story.dart';
+import 'package:instagram_app/component/story.dart';
+import 'package:instagram_app/component/watch_story.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,48 +18,40 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         child: Column(
           children: [
-            Padding(padding: EdgeInsets.only(top: 50, left: 10)),
+            Padding(padding: EdgeInsets.only(top: 50,)),
             Text(
               'Instagram',
               style: TextStyle(
                 fontFamily: 'Lobster',
-                fontSize: 35,
+                fontSize: 30,
                 fontWeight: FontWeight.w400,
                 color: Colors.white,
               ),
             ),
+            Padding(padding: EdgeInsets.only(bottom: 20)),
             Row(
               children: [
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => StoryScreen()));
-                      },
-                      child: Image(
-                          image: AssetImage(
-                            'assets/images/add.png',
-                          )),
-                    ),
-                    Text(
-                      'Нэмэх',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
+                AddStory(),
+                SizedBox(
+                  width: 20,
                 ),
-                Flexible(
-                  child: Container(),
-                  flex: 2,
+                WatchStory(),
+                SizedBox(
+                  width: 20,
+                ),
+                SeeStory(),
+                SizedBox(
+                  width: 20,
+                ),
+                Story(),
+                SizedBox(
+                  width: 20,
                 )
               ],
             ),
-          ],
+              ],
+            ),
         ),
-      ),
     );
   }
 }

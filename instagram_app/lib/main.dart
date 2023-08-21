@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_app/pages/home_screen.dart';
+import 'package:instagram_app/component/story_list.dart';
 import 'package:instagram_app/pages/login_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:instagram_app/pages/sign_up.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
