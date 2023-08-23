@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_app/component/text_field.dart';
+import 'package:instagram_app/layouts/screen_layout.dart';
 import 'package:instagram_app/pages/home_screen.dart';
 import 'package:instagram_app/pages/sign_up.dart';
 import 'package:instagram_app/resources/auth_method.dart';
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _isLoading = false;
       });
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => ScreenLayout()));
     } else {
       print('Not logged in');
     }
@@ -59,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 2,
               ),
               Text(
-                'Instagram',
+                'iCodeGram',
                 style: TextStyle(
                   fontFamily: 'Lobster',
                   fontSize: 35,

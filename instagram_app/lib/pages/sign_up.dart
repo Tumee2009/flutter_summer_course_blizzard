@@ -38,7 +38,7 @@ class _SignUpState extends State<SignUp> {
               children: [
                 Flexible(flex: 2, child: Container()),
                 Text(
-                  'Instagram',
+                  'iCodeGram',
                   style: TextStyle(
                     fontFamily: 'Lobster',
                     fontSize: 35,
@@ -90,7 +90,7 @@ class _SignUpState extends State<SignUp> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) => const LoginScreen()));
                     AuthMetods().singUpUser(
                         email: _emailController.text,
                         password: _passwordController.text,
