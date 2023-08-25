@@ -1,6 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lesson_20_flutter/component/text_field.dart';
 import 'package:lesson_20_flutter/resources/auth_method.dart';
+import 'package:lesson_20_flutter/utils/utils.dart';
 
 class SingUp extends StatefulWidget {
   const SingUp({super.key});
@@ -14,6 +18,7 @@ class _SingUpState extends State<SingUp> {
   final TextEditingController _userController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _rePasswordController = TextEditingController();
+  Uint8List? _image;
 
   @override
   void dispose() {
@@ -88,7 +93,19 @@ class _SingUpState extends State<SingUp> {
                     AuthMetods().singUpUser(
                         email: _emailController.text,
                         password: _passwordController.text,
-                        username: _userController.text);
+                        username: _userController.text, file: null);
+                    Uint8List? _image;
+                    Stack(
+                      children: [
+                        _image != null? CircleAvatar(
+                        radius: 64,
+                          backgroundImage: MemoryImage(_image!),
+                    ) :  CircleAvatar(radius: 64,
+                    backgroundImage: NetworkImage("https://toppng.com/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png"),
+                          child: Positioned(child: IconButton(icon: Icon(Icons.add_a_photo), onPressed: selectImage,), bottom: 10, left: 80,),
+                    ),
+                      ],
+                    );
                   },
                   child: Container(
                     width: double.infinity,
@@ -108,18 +125,17 @@ class _SingUpState extends State<SingUp> {
                   child: Container(),
                   flex: 2,
                 ),
-                // Text('Эсвэл', style: TextStyle(
-                //   fontWeight: FontWeight.w400,
-                //   fontSize: 14,
-                // ),),
-                // SizedBox(
-                //   height: 7,
-                // ),
-                // Flexible(child: Container(),
-                // flex: 4,)
               ],
             )),
       ),
     );
+  }
+ void selectImage() async {
+   Uint8List image = await
+       pickImage(ImageSource.gallery,
+       );
+   setState(() {
+     _image = image;
+   });
   }
 }

@@ -106,6 +106,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(),
                       flex: 2,
                     ),
+                    GestureDetector(
+                    )
                   ],
               ),
           ),

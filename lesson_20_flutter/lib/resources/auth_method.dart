@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lesson_20_flutter/pages/singup_screen.dart';
@@ -10,7 +12,9 @@ class AuthMetods {
     required String email,
     required String password,
     required String username,
-  }) async {
+    required Uint8List? file,
+  })
+  async {
     String result = 'Some error occured';
     try {
       if (email.isNotEmpty ||
